@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script defer src="./htmx-toaster.js"></script>
+    <script defer src="./htmx-toaster.js" data-htmxt-colors=";;;;"></script>
     <title>HTMX Toaster</title>
     <script
       src="https://unpkg.com/htmx.org@1.9.12"
@@ -12,7 +12,10 @@
     ></script>
   </head>
   <body>
+    <button onclick="simulateHTMXRequest('Hello, this is a test toast!', 'default');">Trigger Default Toast</button>
     <button onclick="simulateHTMXRequest('Hello, this is a test toast!', 'success');">Trigger Success Toast</button>
+    <button onclick="simulateHTMXRequest('Hello, this is a test toast!', 'info');">Trigger Info Toast</button>
+    <button onclick="simulateHTMXRequest('Hello, this is a test toast!', 'error');">Trigger Error Toast</button>
     <script>
       function simulateHTMXRequest(body, type = "default") {
         const xhr = new XMLHttpRequest();

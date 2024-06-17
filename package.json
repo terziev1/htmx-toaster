@@ -1,7 +1,7 @@
 {
   "name": "htmx-toaster",
-  "description": "zero configuration toaster component for HTMX",
-  "version": "0.0.1",
+  "description": "zero setup toaster library for HTMX",
+  "version": "0.0.3",
   "license": "0BSD",
   "files": [
     "LICENSE",

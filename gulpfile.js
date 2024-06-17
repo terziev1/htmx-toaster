@@ -32,7 +32,8 @@ gulp.task("minify-modern", function () {
     .src("htmx-toaster.js")
     .pipe(uglify())
     .pipe(rename({ suffix: ".min" }))
-    .pipe(gulp.dest("dist"));
+    .pipe(gulp.dest("dist"))
+    .pipe(gulp.dest("docs"));
 });
 
 gulp.task("default", gulp.series("minify-ie11", "minify-modern"));

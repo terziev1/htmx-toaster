@@ -38,8 +38,7 @@ class ToasterComponent extends HTMLElement {
 
   addToast({ body, type }) {
     const id = Math.random().toString(36).substr(2, 9);
-    if (this.toasts.length == 3) {
-      console.log("removing toast", this.toasts[this.toasts.length - 1].id, this.toasts.length);
+    if (this.toasts.length == 2) {
       this.removeToast(this.toasts[this.toasts.length - 1].id);
     }
     this.toasts.unshift({ id, body, type });
@@ -55,7 +54,6 @@ class ToasterComponent extends HTMLElement {
       toastElement.classList.add("fade-out");
       toastElement.addEventListener("animationend", () => {
         this.shadowRoot.querySelector(".toaster").removeChild(toastElement);
-        console.log("Toast removed from DOM:", id);
       });
     }
   }
@@ -81,7 +79,7 @@ class ToasterComponent extends HTMLElement {
 
   connectedCallback() {
     const style = document.createElement("style");
-    style.textContent = ` ${this.generateTheme()} .toaster * { margin: 0; text-decoration: none; box-sizing: border-box; font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;} .toaster {display: flex;flex-direction: column;align-items: flex-end;gap: 10px;position: fixed;z-index: 2147483647;inset: 2rem;user-select: none;pointer-events: none;} .toast a { color: inherit; } .toast {position: relative;width: 100%;align-items: start;padding: 12px;padding-right: 16px;background-color: #fff;backdrop-filter: blur(8px);-webkit-backdrop-filter: blur(8px);border: 1px solid rgb(228, 228, 231);box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);border-radius: 10px;font-size: 1rem;line-height: 1.5rem;z-index: 50;color: var(--txt,#000);text-align: left;animation: slideIn 0.3s ease-in-out;user-select: auto;pointer-events: auto;transition: transform 0.3s ease;} .default { background-color:var(--bg,#f2f2f2) } .success { background-color:var(--sc, #00a96f); } .info { background-color:var(--in, #00b3f0); } .error { background-color: var(--er,#ff6f70); } @media (min-width: 640px) {.toaster { inset: 3rem; }.toast { max-width: 350px; }}.fade-out {animation: fadeOut 0.3s ease;} .toaster img {width: 64px;height: 64px;aspect-ratio: 1/1;object-fit: cover;border-radius: 4px;overflow: hidden;object-position: center;} .toast button{background-color:transparent;border:none;cursor:pointer;text-align:inherit}@keyframes slideIn { from { transform: translateX(10%); } to { transform: translateX(0); } } @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }`;
+    style.textContent = ` ${this.generateTheme()} .toaster * { margin: 0; text-decoration: none; box-sizing: border-box; font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;} .toaster {display: flex;flex-direction: column;align-items: flex-end;gap: 10px;position: fixed;z-index: 2147483647;inset: 2rem;user-select: none;pointer-events: none;} .toast a { color: ; } .toast {position: relative;width: 100%;align-items: start;padding: 12px;padding-right: 16px;background-color: var(--bg,#f2f2f2);backdrop-filter: blur(8px);-webkit-backdrop-filter: blur(8px);border: 1px solid rgb(228, 228, 231);box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);border-radius: 10px;font-size: 1rem;line-height: 1.5rem;z-index: 50;color: var(--txt,#000);text-align: left;animation: slideIn 0.3s ease-in-out;user-select: auto;pointer-events: auto;transition: transform 0.3s ease;} .toast p {margin:4px 0;} .default { background-color:var(--bg,#f2f2f2) } .success { background-color:var(--sc, #00a96f); } .info { background-color:var(--in, #00b3f0); } .error { background-color: var(--er,#ff6f70); } @media (min-width: 640px) {.toaster { inset: 3rem; }.toast { max-width: 350px; }}.fade-out {animation: fadeOut 0.3s ease;} .toaster img {width: 64px;height: 64px;aspect-ratio: 1/1;object-fit: cover;border-radius: 4px;overflow: hidden;object-position: center;} .toast button{background-color:transparent;border:none;cursor:pointer;text-align:inherit}@keyframes slideIn { from { transform: translateX(10%); } to { transform: translateX(0); } } @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }`;
     this.shadowRoot.appendChild(style);
   }
 

@@ -1,6 +1,6 @@
 # HTMX Toaster - zero config toaster library for HTMX
 
-- < 3kb gzipped
+- 2kb gzipped ( 4kb with IE11 support)
 - language agnostic
 - no build steps
 - customizable theme

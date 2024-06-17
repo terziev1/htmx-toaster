@@ -18,7 +18,10 @@
     "url": "git+https://github.com/terziev1/htmx-toaster.git"
   },
   "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
     "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-uglify": "^3.0.2"
   }

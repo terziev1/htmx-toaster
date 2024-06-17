@@ -1,0 +1,25 @@
+{
+  "name": "htmx-toaster",
+  "description": "zero configuration toaster component for HTMX",
+  "version": "0.0.1",
+  "license": "0BSD",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist/*.js"
+  ],
+  "main": "dist/htmx-toaster.min.js",
+  "unpkg": "dist/htmx-toaster.min.js",
+  "scripts": {
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terziev1/htmx-toaster.git"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-uglify": "^3.0.2"
+  }
+}

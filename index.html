@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="./htmx-toaster.js"></script>
+    <title>HTMX Toaster</title>
+    <script
+      src="https://unpkg.com/htmx.org@1.9.12"
+      integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <button onclick="simulateHTMXRequest('Hello, this is a test toast!', 'success');">Trigger Success Toast</button>
+    <script>
+      function simulateHTMXRequest(body, type = "default") {
+        const xhr = new XMLHttpRequest();
+
+        xhr.getResponseHeader = function (headerName) {
+          if (headerName === "X-Toast-Body") return body;
+          if (headerName === "X-Toast-Type") return type;
+          return null;
+        };
+
+        const htmxEvent = new CustomEvent("htmx:afterRequest", {
+          detail: { xhr: xhr },
+        });
+
+        document.body.dispatchEvent(htmxEvent);
+      }
+    </script>
+  </body>
+</html>

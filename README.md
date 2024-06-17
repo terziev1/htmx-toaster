@@ -4,6 +4,7 @@
 - language agnostic
 - no build steps
 - customizable theme
+- Swipe to dismiss gesture
 - Automatic dismiss after 5s
 - Max 3 toasts can be visible at one time
 

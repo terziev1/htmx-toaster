@@ -1,4 +1,4 @@
-# HTMX Toaster - zero config toaster library for HTMX
+# HTMX Toaster - zero setup toaster library for HTMX
 
 - 2.5kb gzipped ( 4kb with IE11 support)
 - language agnostic

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="../dist/htmx-toaster.min.js" data-htmxt-colors=";;;;"></script>
+    <title>HTMX Toaster Component</title>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <img height="80" width="80" src="/logo.png" alt="logo" />
+        <h1>HTMX Toaster</h1>
+        <p>zero setup toaster library for HTMX</p>
+        <nav>
+          <button class="btn primary" onclick="simulateHTMXRequest();">Render Toast</button>
+          <a class="btn" href="https://github.com/terziev1/htmx-toaster">Github / Docs</a>
+        </nav>
+      </section>
+      <section>
+        <ul>
+          <li>2.5kb gzipped ( 4kb with IE11 support)</li>
+          <li>language agnostic</li>
+          <li>no build steps</li>
+          <li>customizable theme</li>
+          <li>mobile swipe to dismiss</li>
+        </ul>
+      </section>
+    </main>
+    <footer>Built by <a href="https://github.com/terziev1" target="_blank">Kos</a></footer>
+    <script>
+      function simulateHTMXRequest(body) {
+        const types = ["default", "success", "info", "error"];
+        const type = types[Math.floor(Math.random() * types.length)];
+        const xhr = new XMLHttpRequest();
+
+        xhr.getResponseHeader = function (headerName) {
+          if (headerName === "HXToaster-Body") return "Hello, this is a toast from the backend!";
+          if (headerName === "HXToaster-Type") return type;
+          return null;
+        };
+
+        const htmxEvent = new CustomEvent("htmx:afterRequest", {
+          detail: { xhr: xhr },
+        });
+
+        document.body.dispatchEvent(htmxEvent);
+      }
+    </script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      :root {
+        font-size: 18px;
+        --primary: #f50076;
+        --background: #e9e7e7;
+        --text: #100f0f;
+      }
+      html {
+        background-color: var(--background);
+      }
+      * {
+        color: var(--text);
+        font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+      }
+      body {
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: 1fr 2em;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .hero {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 4rem 0;
+      }
+      .btn {
+        transition: all 200ms ease-in-out;
+        border-radius: 6px;
+        padding: 0.5em 1em;
+        border: 1px solid #fefefe;
+        text-align: center;
+        font-weight: 700;
+        cursor: pointer;
+        background-color: #fefefe;
+        text-decoration: none;
+        font-size: 0.85rem;
+      }
+      .btn.primary {
+        background-color: var(--primary);
+        color: #fff;
+      }
+      nav {
+        display: flex;
+        gap: 0.5em;
+      }
+      h1 {
+        font-size: 2.25rem;
+        font-weight: 700;
+        margin-bottom: 0.05em;
+      }
+      ul {
+        margin-top: 2rem;
+        text-align: left;
+      }
+      li {
+        padding: 0.3em;
+      }
+      li::marker {
+        color: var(--primary);
+      }
+    </style>
+  </body>
+</html>

@@ -76,7 +76,7 @@ class ToasterComponent extends HTMLElement {
     toastElement.addEventListener("touchstart", (event) => this.handleTouchStart(event, toastElement), { passive: true });
     toastElement.addEventListener("touchmove", (event) => this.handleTouchMove(event), { passive: true });
     toastElement.addEventListener("touchend", (event) => this.handleTouchEnd(event, id), { passive: true });
-    setTimeout(() => this.removeToast(id), 5000000); // Auto-remove after 5 seconds
+    setTimeout(() => this.removeToast(id), 5000); // Auto-remove after 5 seconds
   }
 
   connectedCallback() {

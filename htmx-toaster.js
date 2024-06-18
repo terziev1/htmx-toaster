@@ -22,7 +22,7 @@ class ToasterComponent extends HTMLElement {
     const colors = document.querySelector("script[data-htmxt-colors]")?.getAttribute("data-htmxt-colors") || null;
     if (!colors) return;
     const colorArray = colors.split(";");
-    const defaults = ["#f2f2f2", "#000", "#00a96f33", "#00b3f033", "#ff6f7033"];
+    const defaults = ["#f2f2f2", "#000", "#e2f9ec", "#e6f1fb", "#f8e3e3"];
     const [bg, txt, sc, inf, err] = colorArray.map((color, index) => color || defaults[index]);
     return `.toaster {--bg:${bg};--txt:${txt};--sc:${sc};--in:${inf};--er:${err};}`;
   }

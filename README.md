@@ -19,13 +19,13 @@
 ### Via a CDN
 
 ```html
-<script defer src="https://unpkg.com/htmx-toaster@0.0.7/dist/htmx-toaster.min.js"></script>
+<script defer src="https://unpkg.com/htmx-toaster@0.0.9/dist/htmx-toaster.min.js"></script>
 ```
 
 IE11 Compatible version
 
 ```html
-<script defer src="https://unpkg.com/htmx-toaster@0.0.7/dist/htmx-toaster.ie11.min.js"></script>
+<script defer src="https://unpkg.com/htmx-toaster@0.0.9/dist/htmx-toaster.ie11.min.js"></script>
 ```
 
 ## Usage

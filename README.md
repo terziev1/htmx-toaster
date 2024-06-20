@@ -28,6 +28,16 @@ IE11 Compatible version
 <script defer src="https://unpkg.com/htmx-toaster/dist/htmx-toaster.ie11.min.js"></script>
 ```
 
+### Install as npm package
+
+```
+npm install htmx-toaster --save
+```
+
+```js
+import "htmx-toaster";
+```
+
 ## Usage
 
 ### Toast are triggered by setting the following Response Headers on the server

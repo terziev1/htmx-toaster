@@ -1,4 +1,4 @@
-# zero setup toaster library for HTMX
+# zero-setup, customizable server-triggered notifications for HTMX
 
 - 2.5kb gzipped ( 4kb with IE11 support)
 - language agnostic

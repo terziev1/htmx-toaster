@@ -15,8 +15,8 @@
         <h1>HTMX Toaster</h1>
         <p>zero setup toaster library for HTMX</p>
         <nav>
-          <button class="btn primary" onclick="simulateHTMXRequest();">Render Toast</button>
-          <a class="btn" href="https://github.com/terziev1/htmx-toaster">Github / Docs</a>
+          <button class="btn primary" data-umami-event="Render button" onclick="simulateHTMXRequest();">Render Toast</button>
+          <a class="btn" data-umami-event="Docs button" href="https://github.com/terziev1/htmx-toaster">Github / Docs</a>
         </nav>
       </section>
       <section>
@@ -29,7 +29,7 @@
         </ul>
       </section>
     </main>
-    <footer>Built by <a href="https://github.com/terziev1" target="_blank">Kos</a></footer>
+    <footer>Built by <a href="https://github.com/terziev1" data-umami-event="Personal Profile button" target="_blank">Kos</a></footer>
     <script>
       function simulateHTMXRequest(body) {
         const types = ["default", "success", "info", "error"];

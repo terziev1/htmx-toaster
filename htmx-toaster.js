@@ -31,18 +31,19 @@ class ToasterComponent extends HTMLElement {
       const body = event.detail.xhr.getResponseHeader("HXToaster-Body");
       const type = event.detail.xhr.getResponseHeader("HXToaster-Type") || "default";
       if (body) {
-        this.addToast({ body, type });
+        this.addToast(body, type);
       }
     });
   }
 
-  addToast({ body, type }) {
+  addToast(body, type) {
     const id = Math.random().toString(36).substr(2, 9);
     if (this.toasts.length == 2) {
       this.removeToast(this.toasts[this.toasts.length - 1].id);
     }
     this.toasts.unshift({ id, body, type });
     this.renderToast(id);
+    return id;
   }
 
   removeToast(id) {
@@ -164,12 +165,13 @@ class ToasterComponent extends HTMLElement {
     this.currentToast = null;
     this.touchStartX = 0;
     this.touchEndX = 0;
-    this.isDragging = false; // Reset dragging flag on touch end
+    this.isDragging = false;
   }
 }
 
 customElements.define("htmx-toaster-component", ToasterComponent);
 window.addEventListener("DOMContentLoaded", () => {
   const toasterElement = document.createElement("htmx-toaster-component");
+  window.HTMXToasterComponent = toasterElement;
   document.body.appendChild(toasterElement);
 });

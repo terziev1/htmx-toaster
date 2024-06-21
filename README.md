@@ -55,6 +55,14 @@ w.Header().Set("HXToaster-Body", "This is the text that will show up in the body
 w.Header().Set("HXToaster-Type", "success");
 ```
 
+### Triggering toasts from the front end:
+
+```html
+<script>
+  window.HTMXToastComponent.addToast("This is the text that will show up in the body of the toast", "info");
+</script>
+```
+
 ## Customize theme
 
 an additional property `data-htmxt-colors` can be added to the script to customize the theme

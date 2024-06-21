@@ -172,6 +172,6 @@ class ToasterComponent extends HTMLElement {
 customElements.define("htmx-toaster-component", ToasterComponent);
 window.addEventListener("DOMContentLoaded", () => {
   const toasterElement = document.createElement("htmx-toaster-component");
-  window.HTMXToasterComponent = toasterElement;
+  window.HTMXToaster = toasterElement;
   document.body.appendChild(toasterElement);
 });

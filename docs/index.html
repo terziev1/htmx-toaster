@@ -36,22 +36,10 @@
     </main>
     <footer>Built by <a href="https://github.com/terziev1" data-umami-event="Personal Profile button" target="_blank">Kos</a></footer>
     <script>
-      function simulateHTMXRequest(body) {
+      function simulateHTMXRequest() {
         const types = ["default", "success", "info", "error"];
         const type = types[Math.floor(Math.random() * types.length)];
-        const xhr = new XMLHttpRequest();
-
-        xhr.getResponseHeader = function (headerName) {
-          if (headerName === "HXToaster-Body") return "Hello, this is a toast from the backend!";
-          if (headerName === "HXToaster-Type") return type;
-          return null;
-        };
-
-        const htmxEvent = new CustomEvent("htmx:afterRequest", {
-          detail: { xhr: xhr },
-        });
-
-        document.body.dispatchEvent(htmxEvent);
+        window.HTMXToaster.addToast("Hello, this is a toast from the backend!", type);
       }
     </script>
     <style>

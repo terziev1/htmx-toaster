@@ -42,17 +42,16 @@ import "htmx-toaster";
 
 ### Toast are triggered by setting the following Response Headers on the server
 
-`HXToaster-Body` - sets the body of the toast
+`HXToast` takes two keys
+
+1. `body` - sets the body of the toast
+2. `type` - optional parameter to choose type of toast
 
 ```go
-w.Header().Set("HXToaster-Body", "This is the text that will show up in the body of the toast")
-```
-
-`HXToaster-Type` - optional parameter to choose type of toast
-
-```js
-//  "default", "success", "info", "error"
-w.Header().Set("HXToaster-Type", "success");
+// omitting type will render the default style
+w.Header().Set("HX-Trigger", `{"HXToast":{"body":"This is the text that will show up in the body of the toast"}}`)
+// type can be  "default", "success", "info", "error"
+w.Header().Set("HX-Trigger", `{"HXToast":{"type":"success","body":"This is the text that will show up in the body of the toast"}}`)
 ```
 
 ### Triggering toasts from the front end:

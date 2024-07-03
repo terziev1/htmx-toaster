@@ -27,10 +27,10 @@ class ToasterComponent extends HTMLElement {
     return `.toaster {--bg:${bg};--txt:${txt};--sc:${sc};--in:${inf};--er:${err};}`;
   }
   initializeEventListener() {
-    document.body.addEventListener("HXToast", function (evt) {
-      const body = evt.detail.body;
+    document.body.addEventListener("HXToast", (event) => {
+      const body = event.detail.body;
       if (body) {
-        this.addToast(body, evt.detail.type || "default");
+        this.addToast(body, event.detail.type || "default");
       }
     });
     document.body.addEventListener("htmx:afterRequest", (event) => {

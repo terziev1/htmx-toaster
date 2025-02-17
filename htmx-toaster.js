@@ -188,9 +188,9 @@ window.addEventListener("DOMContentLoaded", () => {
   createToasterComponent();
 });
 
-htmx.on("htmx:afterSettle", () => {
-  if (document.getElementById("htmx-toaster")) {
-    return;
-  }
-  createToasterComponent();
-});
+if (htmx) {
+  htmx.on("htmx:afterSettle", () => {
+    if (document.getElementById("htmx-toaster")) return;
+    createToasterComponent();
+  });
+}
